@@ -135,7 +135,7 @@ CREATE</button></div>
                     </span>
                     <span>
                         <button style="background-color: #F60E0E;" class="btn-crud-list-staff ">
-                        <i  style="color: white;" class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i  style="color: white;" class="fa fa-trash-o btn-delete-staff" aria-hidden="true"></i>
                         </button>
                     </span>
                 </td>
@@ -213,13 +213,26 @@ CREATE</button></div>
 
     </form>
 
-    <!------------ end of create staff ----------------->
 </div>
+        <!------------ end of create staff ----------------->
 
-            </body>
+        <!------------- Form delete staff ------------>
 
-      </div>
-		</div>
+        <div class="delete-dev-staff">
+        <div class="all-div-staff" style="padding:25px 0px 0px 0px ;">
+        <h2 class="text-delete-staff" style="font-size: 20px;">Do you want to delete this staff?</h2>
+        <div class="btn-dev-staff">
+        <button class="btn-cancel-delete-staff">Cancel</button>
+        <button class="btn-confirm-delete-staff">Delete</button>
+        </div>
+        </div>
+    </div>  
+
+        <!------------ end of delete staff ----------------->
+
+</body>
+</div>
+</div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
@@ -245,12 +258,14 @@ CREATE</button></div>
         width: 500px;
         height: 500px;
         background-color: rgb(255, 255, 255);
-        border: 1px solid #08000f;
+        border:none;
         border-radius: 4px;
         display: none;
         position: relative;
         left: 300px;
         bottom: 170px;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5), inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+
     }
     .name-new-new-staff-create {
     padding: 10px 0px 0px 14px;
@@ -319,6 +334,47 @@ CREATE</button></div>
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
     /* <!------------ end of create staff -----------------> */
 
+    /* css delete */
+    .delete-dev-staff{
+        width: 300px;
+        height: 150px;
+        background-color: white;
+        border: none;
+        border-radius: 4px;
+        position: relative;
+        left: 350px;
+        bottom: 80px;
+        display: none;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5), inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+    }
+    .btn-dev-staff{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .text-delete-staff{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .btn-confirm-delete-staff , .btn-cancel-delete-staff {
+        width: 90px;
+        height: 30px;
+    }
+    .btn-cancel-delete-staff {
+        background-color: #3F5FFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+    .btn-confirm-delete-staff {
+        background-color: #F81616;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* end css delete */
 
   </style>
   <script>
@@ -329,6 +385,15 @@ CREATE</button></div>
     create_staff_button.onclick = () => {
       pop_up1.style.display = "block"
       close_create_staff.onclick = () => pop_up1.style.display = "none"
+    }
+
+    let pop_up2 = document.querySelector(".delete-dev-staff")
+    let btn_delete_staff = document.querySelector(".btn-delete-staff")
+    let btn_cancel_delete_staff = document.querySelector(".btn-cancel-delete-staff")
+
+    btn_delete_staff.onclick = () => {
+        pop_up2.style.display = "block"
+        btn_cancel_delete_staff.onclick = () => pop_up2.style.display = "none"
     }
   </script>
 </html>
